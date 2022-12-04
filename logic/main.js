@@ -1,6 +1,6 @@
-import * as bl from 'data/banlist.json';
-import * as sl from 'data/setlist.json';
-import * as db from 'data/card-db-essential.json';
+import * as bl from './data/banlist.json';
+import * as sl from './data/setlist.json';
+import * as db from './data/card-db-essential.json';
 
 
 $(function() {
