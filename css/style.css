@@ -6,6 +6,10 @@ body {
   overflow: hidden;
 }
 
+*:focus {
+  outline: none;
+}
+
 div {
   display: flex;
   flex-direction: row;
@@ -44,7 +48,7 @@ span>ul.errList {
   /* height: 79vh; */
   flex-grow: 1;
   margin-bottom: 0;
-  overflow-y:auto;
+  overflow-y: auto;
 }
 
 span>ul.legend {
@@ -89,24 +93,22 @@ textarea {
   margin: 10px;
   padding: 10px;
   flex-grow: 1;
+  border: 1px dashed #fbfbfb;
 }
 
-::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
 }
 
-::-webkit-scrollbar
-{
-	width: 12px;
+::-webkit-scrollbar {
+  width: 12px;
 }
 
-::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-  box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #555;
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #555;
 }

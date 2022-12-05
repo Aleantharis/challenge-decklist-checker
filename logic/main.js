@@ -31,13 +31,16 @@ $(function () {
   }
 
   function validateDeck() {
-    const deck = $("#in").val().split('\n');
+    var deck = $("#in").val().split('\n');
 
     deck.forEach((element, index) => {
       var san = element;
       san = (san.replace(/^ *\d* ()?/, "")).trim();
       deck[index] = san;
     });
+
+    // Filter out "empty" entries
+    deck = deck.filter(c => c !== '');
 
     var bannedCards = [];
     var unavailCards = [];
