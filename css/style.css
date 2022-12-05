@@ -24,7 +24,6 @@ span>h3 {
   background-color: #1f2227;
 }
 
-
 span>ul {
   border: 1px dashed #fbfbfb;
   border-radius: 10px;
@@ -32,9 +31,17 @@ span>ul {
   color: #fbfbfb;
   background-color: #1f2227;
   list-style-position: inside;
+  font-weight: bold;
+}
+
+span>ul.errList {
   columns: auto;
   height: 79vh;
-  font-weight: bold;
+}
+
+span>ul.legend {
+  columns: 3;
+  height: auto;
 }
 
 li.banned {
