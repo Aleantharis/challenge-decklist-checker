@@ -6,10 +6,6 @@ body {
   overflow: hidden;
 }
 
-*:focus {
-  outline: none;
-}
-
 div {
   display: flex;
   flex-direction: row;
@@ -94,6 +90,11 @@ textarea {
   padding: 10px;
   flex-grow: 1;
   border: 1px dashed #fbfbfb;
+}
+
+textarea:focus {
+  outline: none;
+  border: 1px solid #fbfbfb;
 }
 
 ::-webkit-scrollbar-track {
