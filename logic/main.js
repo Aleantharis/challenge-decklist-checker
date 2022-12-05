@@ -11,15 +11,22 @@ $(function () {
   $("#in").attr("placeholder", "Please paste deck here (in MTG online's deck format (*.dek))...\n\nExample:\n1 Library of Congress\n1 Cryptic Gateway\n1 Azami, Lady of Scrolls")
 
   function validateCard(cardName) {
-    if (Array.isArray(cardDb[cardName])) {
-      return (cardDb[cardName].filter(value => setList.includes(value))).length > 0;
+    // -1: Invalid card
+    // 0: Card not legal (not printed in a legal set)
+    // >0: Card is legal
+
+    if (cardDb[cardName] == undefined) {
+      // Card does not exist in db
+      return -1;
     }
-    else if (cardDb[cardName] !== undefined) {
-      return setList.includes(cardDb[cardName]);
+
+
+    if (Array.isArray(cardDb[cardName])) {
+      // > 0 -> Is legal
+      return (cardDb[cardName].filter(value => setList.includes(value))).length;
     }
     else {
-      console.log("git gud");
-      return true;
+      return setList.includes(cardDb[cardName]) ? 1 : 0;
     }
   }
 
@@ -34,35 +41,58 @@ $(function () {
 
     var bannedCards = [];
     var unavailCards = [];
+    var nonexistCards = [];
+    var allCards = [];
     deck.forEach(function (value) {
       var idx = bans.indexOf(value);
       if (idx >= 0) {
         bannedCards.push(value);
+        allCards.push(value);
       }
 
-      if (!validateCard(value)) {
-        unavailCards.push(value);
+      switch (validateCard(value)) {
+        case -1:
+          nonexistCards.push(value);
+          allCards.push(value);
+          break;
+        case 0:
+          unavailCards.push(value);
+          allCards.push(value);
+          break;
       }
     });
 
-    let banList = [...new Set(bannedCards)];
-    var banTxt = "";
-    if (banList.length > 0) {
-      banList.forEach(function (value) {
-        banTxt += "<li>" + value + "</li>";
+    let allList = [...new Set(allCards)];
+    var allText = "";
+    if (allList.length > 0) {
+      allList.forEach(function (value) {
+        allText += "<li class='" + bannedCards.includes(value) ? " banned " : "" + unavailCards.includes(value) ? " unavailable " : "" + nonexistCards.includes(value) ? " unknown " : "" + "'>" + value + "</li>";
       });
     }
 
-    let errList = [...new Set(unavailCards)];
-    var errTxt = "";
-    if (errList.length > 0) {
-      errList.forEach(function (value) {
-        errTxt += "<li>" + value + "</li>";
-      });
-    }
+    
+    $("#banListDisplay").html(allText);
 
+    /*
+        let banList = [...new Set(bannedCards)];
+        var banTxt = "";
+        if (banList.length > 0) {
+          banList.forEach(function (value) {
+            banTxt += "<li>" + value + "</li>";
+          });
+        }
+    
+        let errList = [...new Set(unavailCards)];
+        var errTxt = "";
+        if (errList.length > 0) {
+          errList.forEach(function (value) {
+            errTxt += "<li>" + value + "</li>";
+          });
+        }
+    
     $("#banListDisplay").html(banTxt);
     $("#errListDisplay").html(errTxt);
+    */
   }
 
   $("#in").on('change keyup', validateDeck);
