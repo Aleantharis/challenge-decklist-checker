@@ -35,7 +35,7 @@ $(function () {
 
     deck.forEach((element, index) => {
       var san = element;
-      san = (san.replace(/^\d ()?/, "")).trim();
+      san = (san.replace(/^ *\d* ()?/, "")).trim();
       deck[index] = san;
     });
 
