@@ -66,7 +66,19 @@ $(function () {
     var allText = "";
     if (allList.length > 0) {
       allList.forEach(function (value) {
-        allText += "<li class='" + bannedCards.includes(value) ? " banned " : "" + unavailCards.includes(value) ? " unavailable " : "" + nonexistCards.includes(value) ? " unknown " : "" + "'>" + value + "</li>";
+        var classes = "";
+
+        if(bannedCards.includes(value)) {
+          classes += " banned ";
+        }
+        if(unavailCards.includes(value)) {
+          classes += " unavailable ";
+        }
+        if(nonexistCards.includes(value)) {
+          classes += " unknown ";
+        }
+
+        allText += ("<li class='" + classes + "'>" + value + "</li>");
       });
     }
 
