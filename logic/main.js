@@ -37,7 +37,7 @@ $(function () {
     deck.forEach((element, index) => {
       var san = element;
       const match = san.match(regExp);
-      deck[index] = match[3];
+      deck[index] = match[3].trim();
     });
 
     // Filter out "empty" entries
