@@ -7,6 +7,7 @@ $(function () {
   const cardDb = db;
   const bans = bl;
   const setList = sl;
+  const regExp = /^\d* *(\[\w*\:\d+\])? *([\w ]*)/;
 
   $("#in").attr("placeholder", "Please paste deck here (in MTG online's deck format (*.dek))...\n\nExample:\n1 Library of Congress\n1 Cryptic Gateway\n1 Azami, Lady of Scrolls")
 
@@ -35,8 +36,12 @@ $(function () {
 
     deck.forEach((element, index) => {
       var san = element;
-      san = (san.replace(/^ *\d* ()?/, "")).trim();
-      deck[index] = san;
+      
+      //san = (san.replace(/^ *\d* ()?/, "")).trim();
+      const match = san.match(regExp);
+      console.log(match);
+
+      deck[index] = match[2];
     });
 
     // Filter out "empty" entries
