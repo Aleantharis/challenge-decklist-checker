@@ -1,13 +1,23 @@
-import bl from '../data/banlist.json' assert { type: "json" };
-import sl from '../data/setlist.json' assert { type: "json" };
+import bl2 from '../data/2022/banlist.json' assert { type: "json" };
+import sl2 from '../data/2022/setlist.json' assert { type: "json" };
+import bl3 from '../data/2023/banlist.json' assert { type: "json" };
+import sl3 from '../data/2023/setlist.json' assert { type: "json" };
 import db from '../data/card-db-essential.json' assert { type: "json" };
 
 
 $(function () {
   const cardDb = db;
-  const bans = bl;
-  const setList = sl;
+  const bans = {
+    2022: bl2,
+    2023: bl3
+  };
+  const setList = {
+    2022: sl2,
+    2023: sl3
+  };
   const regExp = /^(SB\: *)?\d* *(\[\w*\:\d+\])? *([\w ,'-]*)/;
+
+  var banListVer = 2023;
 
   $("#in").attr("placeholder", "Please paste deck here (in MTG online's deck format (*.dek))...\n\nExample:\n1 Library of Congress\n1 Cryptic Gateway\n1 Azami, Lady of Scrolls")
 
@@ -24,10 +34,10 @@ $(function () {
 
     if (Array.isArray(cardDb[cardName])) {
       // > 0 -> Is legal
-      return (cardDb[cardName].filter(value => setList.includes(value))).length;
+      return (cardDb[cardName].filter(value => setList[banListVer].includes(value))).length;
     }
     else {
-      return setList.includes(cardDb[cardName]) ? 1 : 0;
+      return setList[banListVer].includes(cardDb[cardName]) ? 1 : 0;
     }
   }
 
@@ -48,7 +58,7 @@ $(function () {
     var nonexistCards = [];
     var allCards = [];
     deck.forEach(function (value) {
-      var idx = bans.indexOf(value);
+      var idx = bans[banListVer].indexOf(value);
       if (idx >= 0) {
         bannedCards.push(value);
         allCards.push(value);
@@ -113,4 +123,8 @@ $(function () {
 
   $("#in").on('change keyup', validateDeck);
   $("#in").bind('paste', function () { setTimeout(validateDeck); });
+  $("#selBanList").on('change', function() {
+    banlistVer = $("#selBanList").val();
+    validateDeck();
+  });
 });

@@ -8,9 +8,15 @@
 </head>
 
 <body>
-  <div>
-    <span id="err">
-      <h3>The following cards in your deck are banned:</h3>
+  <div class="content">
+    <span class="err">
+      <div class="head">
+        <h3>Select Banlist Version:</h3>
+        <select id="selBanList">
+          <option value="2022">Banlist Version 2022</option>
+          <option value="2023" selected>Banlist Version 2023</option>
+        </select>
+      </div>
       <ul class="legend"><li class="banned">Banned Card</li><li class="unavailable">Unavailable Card</li><li class="unknown">Unkown Card</li></ul>
       <ul class="errList" id="banListDisplay">
       </ul>
