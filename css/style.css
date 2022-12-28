@@ -136,3 +136,60 @@ textarea:focus {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
   background-color: #555;
 }
+
+dialog {
+  display: flex;
+  color: #fbfbfb;
+  border: 1px dashed #fbfbfb;
+  border-radius: 10px;
+  width: 70vw;
+  background-color: #1a1d21;
+  height: 70vh;
+  flex-direction: column;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+div.diagHead, div.diagContent, div.diagShowBox {
+  display:flex;
+  flex-direction: row;
+  border: 1px dashed #fbfbfb;
+  background-color: #1f2227;
+  border-radius: 10px;
+  width: 69vw;
+}
+
+.diagHead>h4, .diagHead>button {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.diagHead>h4 {
+  flex-grow: 100;
+}
+
+.diagHead>button {
+  flex-grow:1;
+}
+
+.diagContent>input, .diagContent>output {
+  color: #fbfbfb;
+  border: 1px dashed #fbfbfb;
+  background-color: #1f2227;
+  border-radius: 10px;
+  padding:10px;
+  flex-grow: 1;
+}
+
+.diagContent>output {
+  font-weight: bold;
+  text-align: center;
+  flex-grow: 1;
+  margin-left:10px;
+}
+
+.diagShowBox {
+  height: 46vh;
+}

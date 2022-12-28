@@ -133,6 +133,8 @@ $(function () {
     var val = $("#inSet").val();
     var x = setList[2022].indexOf(val);
 
-    $("#outSet").value = x < 0 ? "Not allowed" : "Allowed";
+    $("#outSet").val(x < 0 ? "Not allowed" : "Allowed");
   });
+
+  // TODO: fill showbox with banned set names and shortcuts & fix button css
 });
