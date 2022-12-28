@@ -124,7 +124,7 @@ $(function () {
   $("#in").on('change keyup', validateDeck);
   $("#in").bind('paste', function () { setTimeout(validateDeck); });
   $("#selBanList").on('change', function() {
-    banlistVer = $("#selBanList").val();
+    banListVer = $("#selBanList").val();
     validateDeck();
   });
 });
