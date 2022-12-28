@@ -128,7 +128,7 @@ $(function () {
     validateDeck();
   });
 
-  $("#btnShowDiag").on('click', () => { $("#dlgSet").showModal(); });
+  $("#btnShowDiag").on('click', () => { document.getElementById("dlgSet").showModal(); });
   $("#inSet").on('change keyup', () => { 
     var val = $("#inSet").val();
     var x = setList[2022].indexOf(val);
