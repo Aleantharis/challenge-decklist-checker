@@ -16,6 +16,7 @@
           <option value="2022">Banlist Version 2022</option>
           <option value="2023" selected>Banlist Version 2023</option>
         </select>
+        <button id="btnShowDiag">?</button>
       </div>
       <ul class="legend"><li class="banned">Banned Card</li><li class="unavailable">Unavailable Card</li><li class="unknown">Unkown Card</li></ul>
       <ul class="errList" id="banListDisplay">
@@ -23,6 +24,17 @@
     </span>
     <textarea id="in" name="input"></textarea>
   </div>
+
+  <dialog id="dlgSet">
+    <form method="dialog">
+      <div class="diagHead">
+        <h4>Check Set Legality</h4>
+        <button value="cancel">X</button>
+      </div>
+      <input type="text" id="inSet"/>
+      <output id="outSet"></output>
+    </form>
+  </dialog>
 </body>
 
 </html>

@@ -127,4 +127,12 @@ $(function () {
     banListVer = $("#selBanList").val();
     validateDeck();
   });
+
+  $("#btnShowDiag").on('click', () => { $("#dlgSet").showModal(); });
+  $("#inSet").on('change keyup', () => { 
+    var val = $("#inSet").val();
+    var x = setList[2022].indexOf(val);
+
+    $("#outSet").value = x < 0 ? "Not allowed" : "Allowed";
+  });
 });
