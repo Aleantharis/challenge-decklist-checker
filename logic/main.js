@@ -3,6 +3,7 @@ import sl2 from '../data/2022/setlist.json' assert { type: "json" };
 import bl3 from '../data/2023/banlist.json' assert { type: "json" };
 import sl3 from '../data/2023/setlist.json' assert { type: "json" };
 import db from '../data/card-db-essential.json' assert { type: "json" };
+import slf from '../data/sets-fullname.json' assert { type: "json" };
 
 
 $(function () {
@@ -15,6 +16,7 @@ $(function () {
     2022: sl2,
     2023: sl3
   };
+  const setListFull = slf;
   const regExp = /^(SB\: *)?\d* *(\[\w*\:\d+\])? *([\w ,'-]*)/;
 
   var banListVer = 2023;
@@ -131,10 +133,19 @@ $(function () {
   $("#btnShowDiag").on('click', () => { document.getElementById("dlgSet").showModal(); });
   $("#inSet").on('change keyup', () => { 
     var val = $("#inSet").val();
-    var x = setList[2022].indexOf(val);
+    var x = Object.keys(setListFull).indexOf(val);
+    var y = Object.values(setListFull).indexOf(val);
 
-    $("#outSet").val(x < 0 ? "Not allowed" : "Allowed");
+    $("#outSet").val((x >= 0 || y >= 0 ) ? "Allowed" : "Not Allowed");
   });
 
+  var tmpx = "";
+  Object.keys(setListFull).forEach((item) => {
+    tmpx += "<li>" + setListFull[item] + " (" + item + ")</li>";
+  });
+  $("#diagSetList").html(tmpx);
+
   // TODO: fill showbox with banned set names and shortcuts & fix button css
+
+
 });

@@ -152,16 +152,38 @@ dialog::backdrop {
   background: rgba(0, 0, 0, 0.8);
 }
 
-div.diagHead, div.diagContent, div.diagShowBox {
-  display:flex;
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+dialog>form {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+div.diagHead,
+div.diagContent,
+div.diagShowBox {
+  display: flex;
   flex-direction: row;
-  border: 1px dashed #fbfbfb;
-  background-color: #1f2227;
-  border-radius: 10px;
   width: 69vw;
 }
 
-.diagHead>h4, .diagHead>button {
+div.diagHead,
+div.diagShowBox {
+  border: 1px dashed #fbfbfb;
+  background-color: #1f2227;
+  border-radius: 10px;
+}
+
+div.diagContent {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.diagHead>h4,
+.diagHead>button {
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -171,15 +193,16 @@ div.diagHead, div.diagContent, div.diagShowBox {
 }
 
 .diagHead>button {
-  flex-grow:1;
+  flex-grow: 1;
 }
 
-.diagContent>input, .diagContent>output {
+.diagContent>input,
+.diagContent>output {
   color: #fbfbfb;
   border: 1px dashed #fbfbfb;
   background-color: #1f2227;
   border-radius: 10px;
-  padding:10px;
+  padding: 10px;
   flex-grow: 1;
 }
 
@@ -187,9 +210,9 @@ div.diagHead, div.diagContent, div.diagShowBox {
   font-weight: bold;
   text-align: center;
   flex-grow: 1;
-  margin-left:10px;
+  margin-left: 10px;
 }
 
-.diagShowBox {
-  height: 46vh;
+div.diagShowBox {
+  flex-grow: 1;
 }

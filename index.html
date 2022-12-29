@@ -18,7 +18,11 @@
         </select>
         <button id="btnShowDiag">?</button>
       </div>
-      <ul class="legend"><li class="banned">Banned Card</li><li class="unavailable">Unavailable Card</li><li class="unknown">Unkown Card</li></ul>
+      <ul class="legend">
+        <li class="banned">Banned Card</li>
+        <li class="unavailable">Unavailable Card</li>
+        <li class="unknown">Unkown Card</li>
+      </ul>
       <ul class="errList" id="banListDisplay">
       </ul>
     </span>
@@ -26,13 +30,13 @@
   </div>
 
   <dialog id="dlgSet">
-    <form method="dialog">
+    <form method="dialog" autocomplete="off">
       <div class="diagHead">
         <h4>Check Set Legality</h4>
         <button value="cancel">X</button>
       </div>
       <div class="diagContent">
-        <input type="text" id="inSet" placeholder="Enter set name or shortcut..."/>
+        <input type="text" id="inSet" placeholder="Enter set name or shortcut..." />
         <output id="outSet"></output>
       </div>
       <div class="diagShowBox">
