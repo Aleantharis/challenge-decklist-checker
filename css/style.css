@@ -206,6 +206,11 @@ div.diagContent {
   flex-grow: 1;
 }
 
+diaContent>input:focus {
+  outline: none;
+  border: 1px solid #fbfbfb;
+}
+
 .diagContent>output {
   font-weight: bold;
   text-align: center;
@@ -215,4 +220,29 @@ div.diagContent {
 
 div.diagShowBox {
   flex-grow: 1;
+  display:flex;
+}
+
+.diagList {
+  columns: 3;
+  list-style-position: inside;
+  font-weight: bold;
+  width:100%;
+  flex-grow:1;
+}
+
+button {
+  color: #fbfbfb;
+  border: 1px dashed #fbfbfb;
+  background-color: #1f2227;
+  border-radius: 10px;
+  margin-top:10px;
+  margin-bottom:10px;
+  margin-right:10px
+}
+
+button:hover {
+  background-color: #1a1d21;
+  outline: none;
+  border: 1px solid #fbfbfb;
 }

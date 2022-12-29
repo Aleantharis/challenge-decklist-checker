@@ -136,7 +136,7 @@ $(function () {
     var x = Object.keys(setListFull).indexOf(val);
     var y = Object.values(setListFull).indexOf(val);
 
-    $("#outSet").val((x >= 0 || y >= 0 ) ? "Allowed" : "Not Allowed");
+    $("#outSet").val((x >= 0 || y >= 0 ) ? "Not Allowed" : "Allowed");
   });
 
   var tmpx = "";
