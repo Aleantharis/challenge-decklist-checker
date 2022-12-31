@@ -84,13 +84,13 @@ $(function () {
       allList.forEach(function (value) {
         var classes = "";
 
-        if(bannedCards.includes(value)) {
+        if (bannedCards.includes(value)) {
           classes += " banned ";
         }
-        if(unavailCards.includes(value)) {
+        if (unavailCards.includes(value)) {
           classes += " unavailable ";
         }
-        if(nonexistCards.includes(value)) {
+        if (nonexistCards.includes(value)) {
           classes += " unknown ";
         }
 
@@ -98,7 +98,7 @@ $(function () {
       });
     }
 
-    
+
     $("#banListDisplay").html(allText);
 
     /*
@@ -125,18 +125,18 @@ $(function () {
 
   $("#in").on('change keyup', validateDeck);
   $("#in").bind('paste', function () { setTimeout(validateDeck); });
-  $("#selBanList").on('change', function() {
+  $("#selBanList").on('change', function () {
     banListVer = $("#selBanList").val();
     validateDeck();
   });
 
   $("#btnShowDiag").on('click', () => { document.getElementById("dlgSet").showModal(); });
-  $("#inSet").on('change keyup', () => { 
+  $("#inSet").on('change keyup', () => {
     var val = $("#inSet").val();
     var x = Object.keys(setListFull).indexOf(val);
     var y = Object.values(setListFull).indexOf(val);
 
-    $("#outSet").val((x >= 0 || y >= 0 ) ? "Not Allowed" : "Allowed");
+    $("#outSet").val((x >= 0 || y >= 0) ? "Not Allowed" : "Allowed");
   });
 
   var tmpx = "";
@@ -147,5 +147,36 @@ $(function () {
 
   // TODO: fill showbox with banned set names and shortcuts & fix button css
 
+  // File Drag & Drop
 
+  var holder = document.getRootNode();
+
+  if (typeof window.FileReader === 'undefined') {
+    console.log("File reader unavailable!")
+  } 
+
+  holder.ondragover = function () {
+    this.className = 'hover';
+    return false;
+  };
+  holder.ondragend = function () {
+    this.className = '';
+    return false;
+  };
+  holder.ondrop = function (e) {
+    this.className = '';
+    e.preventDefault();
+
+    var file = e.dataTransfer.files[0],
+      reader = new FileReader();
+    reader.onload = function (event) {
+      console.log(event.target);
+      //holder.innerText = event.target.result;
+      document.getElementById("in").innerText = event.target.result;
+    };
+    console.log(file);
+    reader.readAsText(file);
+
+    return false;
+  };
 });
