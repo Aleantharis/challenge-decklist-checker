@@ -153,7 +153,7 @@ $(function () {
 
   if (typeof window.FileReader === 'undefined') {
     console.log("File reader unavailable!")
-  } 
+  }
 
   holder.ondragover = function () {
     this.className = 'hover';
@@ -170,11 +170,9 @@ $(function () {
     var file = e.dataTransfer.files[0],
       reader = new FileReader();
     reader.onload = function (event) {
-      console.log(event.target);
-      //holder.innerText = event.target.result;
-      document.getElementById("in").innerText = event.target.result;
+      $("#in").val(event.target.result);
+      validateDeck();
     };
-    console.log(file);
     reader.readAsText(file);
 
     return false;
