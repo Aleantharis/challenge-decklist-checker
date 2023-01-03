@@ -29,7 +29,7 @@
     <textarea id="in" name="input"></textarea>
   </div>
 
-  <dialog id="dlgSet">
+  <dialog id="dlgSet" class="setDialog">
     <form method="dialog" autocomplete="off">
       <div class="diagHead">
         <h4>Check Set Legality</h4>
@@ -41,6 +41,19 @@
       </div>
       <div class="diagShowBox">
         <ul class="diagList" id="diagSetList"></ul>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="dlgCard" class="cardDialog">
+    <form method="dialog" autocomplete="off">
+      <div class="diagHead">
+        <h4 id="h4Card">Placeholder</h4>
+        <button value="cancel">X</button>
+      </div>
+      <div class="diagContent">
+        <img id="cardImg" class="cardImg" />
+        <ul id="cardLinks" class="cardLinks"></ul>
       </div>
     </form>
   </dialog>

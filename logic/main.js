@@ -4,7 +4,7 @@ import bl3 from '../data/2023/banlist.json' assert { type: "json" };
 import sl3 from '../data/2023/setlist.json' assert { type: "json" };
 import db from '../data/card-db-essential.json' assert { type: "json" };
 import slf from '../data/sets-fullname.json' assert { type: "json" };
-
+import iDb from '../data/card-db-img.json' assert { type: "json" };
 
 $(function () {
   const cardDb = db;
@@ -17,6 +17,7 @@ $(function () {
     2023: sl3
   };
   const setListFull = slf;
+  const imgDb = iDb;
   const regExp = /^(SB\: *)?\d* *(\[\w*\:\d+\])? *([\w ,'-]*)/;
 
   var banListVer = 2023;
@@ -145,10 +146,19 @@ $(function () {
   });
   $("#diagSetList").html(tmpx);
 
-  // TODO: fill showbox with banned set names and shortcuts & fix button css
+  // TODO: fix urls for banlist popup
+
+  $("#banListDisplay").on('click', (e) => {
+    if (e.target.nodeName === 'LI') { 
+      console.log(e.target.textContent); 
+      $("#h4Card").val(e.target.textContent);
+      $("#cardImg").attr("src", imgDb[e.target.textContent]);
+      $("#cardLinks").html("placeholder");
+      document.getElementById("dlgCard").showModal();
+    }
+  });
 
   // File Drag & Drop
-
   var holder = document.getRootNode();
 
   if (typeof window.FileReader === 'undefined') {

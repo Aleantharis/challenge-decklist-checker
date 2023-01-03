@@ -142,14 +142,18 @@ dialog {
   color: #fbfbfb;
   border: 1px dashed #fbfbfb;
   border-radius: 10px;
-  width: 70vw;
   background-color: #1a1d21;
-  height: 70vh;
   flex-direction: column;
 }
 
-dialog::backdrop {
-  background: rgba(0, 0, 0, 0.8);
+dialog.setDialog {
+  width: 70vw;
+  height: 70vh;
+}
+
+dialog.cardDialog {
+  width: 40vw;
+  height: 70vh;
 }
 
 dialog::backdrop {
@@ -206,7 +210,7 @@ div.diagContent {
   flex-grow: 1;
 }
 
-diaContent>input:focus {
+.diagContent>input:focus {
   outline: none;
   border: 1px solid #fbfbfb;
 }
@@ -245,4 +249,25 @@ button:hover {
   background-color: #1a1d21;
   outline: none;
   border: 1px solid #fbfbfb;
+}
+
+
+.errList>li:hover {
+  background-color: #1a1d21;
+  border: 1px solid #fbfbfb;
+  border-radius: 10px;
+  padding:10px;
+  cursor: pointer;
+}
+
+img.cardImg {
+  border: 1px dashed #fbfbfb;
+  border-radius: 10px;
+  padding: 10px;
+  color: #fbfbfb;
+  background-color: #1f2227;
+}
+
+.cardLinks>li {
+  list-style-type: none;
 }
