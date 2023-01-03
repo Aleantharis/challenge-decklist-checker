@@ -152,7 +152,7 @@ $(function () {
     if (e.target.nodeName === 'LI') { 
       console.log(e.target.textContent); 
       $("#h4Card").html(e.target.textContent);
-      $("#cardImg").attr("src", imgDb[e.target.textContent] !== undefined ? imgDb[e.target.textContent] : '../img/empty.png');
+      $("#cardImg").attr("src", imgDb[e.target.textContent] !== undefined ? imgDb[e.target.textContent] : 'img/empty.png');
       $("#cardLinks").html("<li>placeholder</li>");
       document.getElementById("dlgCard").showModal();
     }
