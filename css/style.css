@@ -103,7 +103,6 @@ li.unknown {
 
 textarea {
   width: 100%;
-  /* height: 95vh; */
   resize: none;
   order: 1;
   background-color: #1f2227;
@@ -152,7 +151,7 @@ dialog.setDialog {
 }
 
 dialog.cardDialog {
-  width: 40vw;
+  width: 70vw;
   height: 70vh;
 }
 
@@ -164,11 +163,14 @@ dialog>form {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  height: inherit;
+  margin: 0;
 }
 
 div.diagHead,
 div.diagContent,
-div.diagShowBox {
+div.diagShowBox,
+div.diagCardBox {
   display: flex;
   flex-direction: row;
   width: 69vw;
@@ -181,9 +183,19 @@ div.diagShowBox {
   border-radius: 10px;
 }
 
-div.diagContent {
+div.diagContent,
+div.diagCardBox {
   margin-top: 10px;
+  display: flex;
+}
+
+div.diagContent {
   margin-bottom: 10px;
+}
+
+div.diagShowBox,
+div.diagCardbox {
+  flex-grow: 1;
 }
 
 .diagHead>h4,
@@ -222,17 +234,12 @@ div.diagContent {
   margin-left: 10px;
 }
 
-div.diagShowBox {
-  flex-grow: 1;
-  display:flex;
-}
-
 .diagList {
   columns: 3;
   list-style-position: inside;
   font-weight: bold;
-  width:100%;
-  flex-grow:1;
+  width: 100%;
+  flex-grow: 1;
 }
 
 button {
@@ -240,9 +247,9 @@ button {
   border: 1px dashed #fbfbfb;
   background-color: #1f2227;
   border-radius: 10px;
-  margin-top:10px;
-  margin-bottom:10px;
-  margin-right:10px
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px
 }
 
 button:hover {
@@ -256,7 +263,7 @@ button:hover {
   background-color: #1a1d21;
   border: 1px solid #fbfbfb;
   border-radius: 10px;
-  padding:10px;
+  padding: 10px;
   cursor: pointer;
 }
 
@@ -266,8 +273,25 @@ img.cardImg {
   padding: 10px;
   color: #fbfbfb;
   background-color: #1f2227;
+  object-fit: scale-down;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 60vh;
 }
 
 .cardLinks>li {
   list-style-type: none;
+  padding: 10px;
+}
+
+.cardLinks {
+  flex-grow: 999999;
+  border: 1px dashed #fbfbfb;
+  border-radius: 10px;
+  color: #fbfbfb;
+  background-color: #1f2227;
+  margin: 0;
+  padding: 10px;
+  margin-left: 10px;
 }
