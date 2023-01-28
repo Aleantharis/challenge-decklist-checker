@@ -18,7 +18,7 @@ $(function () {
   };
   const setListFull = slf;
   const imgDb = iDb;
-  const regExp = /^(SB\: *)?\d* *(\[\w*\:\d+\])? *([\w ,'-]*)/;
+  const regExp = /^(SB\: *)?\d* *(\[\w*\:\d+\])? *([\w ,'-û]*)/;
 
   var banListVer = 2023;
 
