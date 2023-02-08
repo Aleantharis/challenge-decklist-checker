@@ -146,7 +146,9 @@ $(function () {
   });
   $("#diagSetList").html(tmpx);
 
-  // TODO: fix urls for banlist popup
+  // TODO: fix urls for banlist popup, add available packages maybe also add classes/colors for unavailable/banned cards
+  // maybe add word distance search (display top 5 similar cards as suggestions for typos).
+
 
   $("#banListDisplay").on('click', (e) => {
     if (e.target.nodeName === 'LI') { 
