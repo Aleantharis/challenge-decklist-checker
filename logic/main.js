@@ -193,5 +193,5 @@ $(function () {
     return false;
   };
 
-  $("#dlgSet .diagHead").html($("#dlgSet .diagHead").html() + `<a href="http://scryfall.com/search?q=${encodeURIComponent("legal:commander and (" + setList[banListVer].join(" or ") + ")")}">X</a>`);
+  $("#dlgSet .diagHead h4").html($("#dlgSet .diagHead h4").html() + `<a href="http://scryfall.com/search?q=${encodeURIComponent("legal:commander and (set:" + setList[banListVer].join(" or set:") + ")")}">X</a>`);
 });
