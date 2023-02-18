@@ -141,10 +141,14 @@ $(function () {
   });
 
   var tmpx = "";
+  var scrTmp = "";
   Object.keys(setListFull).forEach((item) => {
     tmpx += "<li>" + setListFull[item] + " (" + item + ")</li>";
+    scrTmp += "or set:"+item;
   });
   $("#diagSetList").html(tmpx);
+  var scryFallUrl = `http://scryfall.com/search?q=${encodeURIComponent("legal:commander and (" + scrTmp + ")")}`;
+
 
   // TODO: fix urls for banlist popup, add available packages maybe also add classes/colors for unavailable/banned cards
   // maybe add word distance search (display top 5 similar cards as suggestions for typos).
@@ -182,7 +186,9 @@ $(function () {
     var file = e.dataTransfer.files[0],
       reader = new FileReader();
     reader.onload = function (event) {
-      $("#in").val(event.target.result);
+      var cleanedString = event.target.result.slice(0, event.target.result.indexOf("LAYOUT MAIN"));
+
+      $("#in").val(cleanedString);
       validateDeck();
     };
     reader.readAsText(file);
@@ -190,3 +196,5 @@ $(function () {
     return false;
   };
 });
+
+$("#dlgSet .diagHead").html($("#dlgSet .diagHead") + "<a href='" + scryFallUrl +"'>X</a>");
