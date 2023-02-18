@@ -144,7 +144,7 @@ $(function () {
   var scrTmp = "";
   Object.keys(setListFull).forEach((item) => {
     tmpx += "<li>" + setListFull[item] + " (" + item + ")</li>";
-    scrTmp += "or set:"+item;
+    scrTmp += "or set:" + item;
   });
   $("#diagSetList").html(tmpx);
   var scryFallUrl = `http://scryfall.com/search?q=${encodeURIComponent("legal:commander and (" + scrTmp + ")")}`;
@@ -155,8 +155,8 @@ $(function () {
 
 
   $("#banListDisplay").on('click', (e) => {
-    if (e.target.nodeName === 'LI') { 
-      console.log(e.target.textContent); 
+    if (e.target.nodeName === 'LI') {
+      console.log(e.target.textContent);
       $("#h4Card").html(e.target.textContent);
       $("#cardImg").attr("src", imgDb[e.target.textContent] !== undefined ? imgDb[e.target.textContent] : 'img/empty.png');
       $("#cardLinks").html("<li>placeholder</li>");
@@ -195,6 +195,6 @@ $(function () {
 
     return false;
   };
-});
 
-$("#dlgSet .diagHead").html($("#dlgSet .diagHead") + "<a href='" + scryFallUrl +"'>X</a>");
+  $("#dlgSet .diagHead").html($("#dlgSet .diagHead") + "<a href='" + scryFallUrl + "'>X</a>");
+});
