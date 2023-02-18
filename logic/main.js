@@ -143,7 +143,6 @@ $(function () {
   var tmpx = "";
   Object.keys(setListFull).forEach((item) => {
     tmpx += "<li>" + setListFull[item] + " (" + item + ")</li>";
-    scrTmp += "or set:" + item;
   });
   $("#diagSetList").html(tmpx);
 
