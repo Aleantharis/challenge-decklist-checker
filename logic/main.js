@@ -141,13 +141,11 @@ $(function () {
   });
 
   var tmpx = "";
-  var scrTmp = "";
   Object.keys(setListFull).forEach((item) => {
     tmpx += "<li>" + setListFull[item] + " (" + item + ")</li>";
     scrTmp += "or set:" + item;
   });
   $("#diagSetList").html(tmpx);
-  var scryFallUrl = `http://scryfall.com/search?q=${encodeURIComponent("legal:commander and (" + scrTmp + ")")}`;
 
 
   // TODO: fix urls for banlist popup, add available packages maybe also add classes/colors for unavailable/banned cards
@@ -196,5 +194,5 @@ $(function () {
     return false;
   };
 
-  $("#dlgSet .diagHead").html($("#dlgSet .diagHead") + "<a href='" + scryFallUrl + "'>X</a>");
+  $("#dlgSet .diagHead").html($("#dlgSet .diagHead").html() + `<a href="http://scryfall.com/search?q=${encodeURIComponent("legal:commander and (" + setList[banListVer].join(" or ") + ")")}">X</a>`);
 });
